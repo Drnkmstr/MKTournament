@@ -5,7 +5,7 @@ namespace Domain.Entities;
 
 public class Race : BaseEntity
 {
-    public Race(RacePosition racePosition, Guid mapId, Guid grandPrixId, Guid id, string createdBy) : base(id, createdBy)
+    public Race(string createdBy, RacePosition racePosition, Guid mapId, Guid grandPrixId, Guid id) : base(createdBy, id)
     {
         MapId = mapId;
         GrandPrixId = grandPrixId;

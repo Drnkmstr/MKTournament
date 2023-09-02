@@ -3,9 +3,9 @@ namespace Domain.Common;
 public class BaseEntity
 {
 
-    public BaseEntity(Guid id, string createdBy)
+    public BaseEntity(string createdBy, Guid? id = null)
     {
-        Id = id;
+        Id = id ?? Guid.NewGuid();
         CreatedBy = createdBy;
         ModifiedBy = createdBy;
         Created = DateTime.Now;

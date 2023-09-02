@@ -7,11 +7,11 @@ public class Player : BaseEntity
 {
     public Player(Guid id, string createdBy, PlayerNickName nickName, PlayerEmailAddress emailAddress) : base(id, createdBy)
     {
-        NickName = nickName;
-        EmailAddress = emailAddress;
+        NickName = nickName.Value;
+        EmailAddress = emailAddress.Value;
     }
 
-    public PlayerNickName NickName { get; }
+    public string NickName { get; }
     
-    public PlayerEmailAddress EmailAddress { get; }
+    public string EmailAddress { get; }
 }

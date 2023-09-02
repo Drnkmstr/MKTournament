@@ -1,9 +1,9 @@
-using Domain.Errors.PlayerException;
+using Domain.Errors.MapExceptions;
 using ValueOf;
 
 namespace Domain.ValueObjects;
 
-public class PlayerNickName : ValueOf<string, PlayerNickName>
+public class MapName : ValueOf<string, MapName>
 {
     public const int MinimumLength = 2;
     public const int MaximumLength = 50;
@@ -11,6 +11,6 @@ public class PlayerNickName : ValueOf<string, PlayerNickName>
     protected override void Validate()
     {
         if (Value.Length is < MinimumLength or > MaximumLength)
-            throw new PlayerNickNameInvalidException(Value);
+            throw new InvalidMapNameException(Value);
     }
 }

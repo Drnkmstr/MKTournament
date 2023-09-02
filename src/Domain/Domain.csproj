@@ -4,6 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <UserSecretsId>9d049f7c-8a7b-4be9-b4f1-e84852fd61ea</UserSecretsId>
     </PropertyGroup>
 
 
@@ -20,5 +21,11 @@
 
 
 
+
+
+
+    <ItemGroup>
+      <Folder Include="Enums\" />
+    </ItemGroup>
 
 </Project>

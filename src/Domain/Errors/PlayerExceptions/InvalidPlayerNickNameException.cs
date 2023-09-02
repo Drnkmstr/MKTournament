@@ -1,17 +1,17 @@
 using Domain.ValueObjects;
 
-namespace Domain.Errors.PlayerException;
+namespace Domain.Errors.PlayerExceptions;
 
  // ReSharper disable UnusedMember.Global
-public class PlayerNickNameInvalidException : DomainException
+public class InvalidPlayerNickNameException : DomainException
 {
     private const string MessageTemplate = "{0} is an invalid name. It must be longer than {1} characters and shorter than {2}";
 
-    public PlayerNickNameInvalidException(string value) : base(GetMessage(value))
+    public InvalidPlayerNickNameException(string value) : base(GetMessage(value))
     {
     }
 
-    public PlayerNickNameInvalidException(string value, Exception inner) : base(GetMessage(value), inner)
+    public InvalidPlayerNickNameException(string value, Exception inner) : base(GetMessage(value), inner)
     {
     }
 

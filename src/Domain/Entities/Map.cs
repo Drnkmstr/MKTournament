@@ -5,7 +5,7 @@ namespace Domain.Entities;
 
 public class Map : BaseEntity
 {
-    public Map(string createdBy, MapName name, Guid? id = null) : base(createdBy, id)
+    public Map(MapName name, string? createdBy = null, Guid? id = null) : base(createdBy, id)
     {
         Name = name.Value;
     }

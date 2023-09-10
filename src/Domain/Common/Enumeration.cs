@@ -2,17 +2,15 @@ using System.Reflection;
 
 namespace Domain.Common;
 
-public abstract class Enumeration : IComparable
+public abstract class Enumeration<TType> : IComparable
 {
-    public string Name { get; }
+    public TType Value { get; }
 
     public int Id { get; }
 
-    protected Enumeration(int id, string name) => (Id, Name) = (id, name);
+    protected Enumeration(int id, TType name) => (Id, Value) = (id, name);
 
-    public override string ToString() => Name;
-
-    public static IEnumerable<T> GetAll<T>() where T : Enumeration =>
+    public static IEnumerable<T> GetAll<T>() where T : Enumeration<TType> =>
         typeof(T).GetFields(BindingFlags.Public |
                             BindingFlags.Static |
                             BindingFlags.DeclaredOnly)
@@ -21,7 +19,7 @@ public abstract class Enumeration : IComparable
 
     public override bool Equals(object obj)
     {
-        if (obj is not Enumeration otherValue)
+        if (obj is not Enumeration<TType> otherValue)
         {
             return false;
         }
@@ -34,8 +32,8 @@ public abstract class Enumeration : IComparable
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(Name, Id);
+        return HashCode.Combine(Value, Id);
     }
 
-    public int CompareTo(object other) => Id.CompareTo(((Enumeration)other).Id);
+    public int CompareTo(object other) => Id.CompareTo(((Enumeration<TType>)other).Id);
 }

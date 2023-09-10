@@ -3,11 +3,11 @@ namespace Domain.Common;
 public class BaseEntity
 {
 
-    public BaseEntity(string createdBy, Guid? id = null)
+    public BaseEntity(string? createdBy = null, Guid? id = null)
     {
         Id = id ?? Guid.NewGuid();
-        CreatedBy = createdBy;
-        ModifiedBy = createdBy;
+        CreatedBy = createdBy ?? "System";
+        ModifiedBy = createdBy ?? "System";
         Created = DateTime.Now;
         Modified = Created;
     }

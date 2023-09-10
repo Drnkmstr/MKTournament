@@ -5,7 +5,11 @@ namespace Domain.Entities;
 
 public class Player : BaseEntity
 {
-    public Player(string createdBy, PlayerNickName nickName, PlayerEmailAddress emailAddress, Guid? id = null) : base(createdBy, id)
+    public Player(PlayerNickName nickName,
+        PlayerEmailAddress emailAddress,
+        string? createdBy = null,
+        Guid? id = null) : base(createdBy,
+        id)
     {
         NickName = nickName.Value;
         EmailAddress = emailAddress.Value;

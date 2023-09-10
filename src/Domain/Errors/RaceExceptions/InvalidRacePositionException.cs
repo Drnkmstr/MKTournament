@@ -17,6 +17,6 @@ public class InvalidRacePositionException : DomainException
 
     private static string GetMessage(int value)
     {
-        return string.Format(MessageTemplate, value, RacePosition.MinimumPosition, RacePosition.MaximumPosition);
+        return string.Format(MessageTemplate, value, RacePosition.MinPosition, RacePosition.MaxPosition);
     }
 }

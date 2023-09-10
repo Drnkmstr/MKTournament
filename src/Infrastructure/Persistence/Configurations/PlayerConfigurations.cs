@@ -1,4 +1,5 @@
 using Domain.Entities;
+using Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,7 +11,16 @@ public class PlayerConfigurations : IEntityTypeConfiguration<Player>
     {
         builder.HasKey(p => p.Id);
 
-        builder.HasMany<Race>()
-            .WithOne();
+        builder.Property(p => p.EmailAddress)
+            .HasMaxLength(PlayerEmailAddress.MaxLength);
+        
+        builder.HasIndex(p => p.EmailAddress)
+            .IsUnique();
+        
+        builder.Property(p => p.NickName)
+            .HasMaxLength(PlayerNickName.MaxLength);
+        
+        builder.HasIndex(p => p.NickName)
+            .IsUnique();
     }
 }

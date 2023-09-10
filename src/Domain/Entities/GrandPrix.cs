@@ -1,11 +1,13 @@
+using System.Collections.ObjectModel;
 using Domain.Common;
 using Domain.Enums;
+using ErrorOr;
 
 namespace Domain.Entities;
 
 public class GrandPrix: BaseEntity
 {
-    private List<Race> _races = new();
+    private readonly List<Race> _races = new();
     private List<Player> _blueTeam = new();
     private List<Player> _redTeam = new();
     
@@ -24,6 +26,8 @@ public class GrandPrix: BaseEntity
         RacesNumber = raceNumberNumber?.Value ?? GrandPrixRaceNumber.R4.Value;
         TeamMode = teamMode ?? false;
     }
+
+    public IEnumerable<Race> Races => _races;
     
     public DateTime Date { get; }
     
@@ -36,4 +40,13 @@ public class GrandPrix: BaseEntity
     public string AiMode { get; }
     
     public int RacesNumber { get; }
+
+    public ErrorOr<Success> AddRace(Race race)
+    {
+        if (_races.All(r => r.Id != race.Id)) return Error.Conflict();
+        
+        _races.Add(race);
+        
+        return Result.Success;
+    }
 }

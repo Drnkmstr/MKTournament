@@ -4,6 +4,8 @@ using FluentAssertions;
 
 namespace Domain.Tests.Entities;
 
+using static Testing;
+
 [TestFixture]
 public class GrandPrixTests
 {
@@ -18,5 +20,11 @@ public class GrandPrixTests
         gp.RacesNumber.Should().Be(GrandPrixRaceNumber.R4.Value);
         gp.TeamMode.Should().BeFalse();
         gp.Date.Should().BeCloseTo(DateTime.Now, new TimeSpan(0,0,0,0,20));
+    }
+
+    [Test]
+    public void Generate()
+    {
+        var gp = FakeGrandPrix.Generate();
     }
 }

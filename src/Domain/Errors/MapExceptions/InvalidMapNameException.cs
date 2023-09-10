@@ -21,6 +21,6 @@ public class InvalidMapNameException : DomainException
 
     private static string GetMessage(string value)
     {
-        return string.Format(MessageTemplate, value, MapName.MinimumLength, MapName.MaximumLength);
+        return string.Format(MessageTemplate, value, MapName.MinLength, MapName.MaxLength);
     }
 }

@@ -6,9 +6,9 @@ namespace Domain.ValueObjects;
 
 public class RacePosition : ValueOf<int, RacePosition>
 {
-    public const int MinimumPosition = 0;
+    public const int MinPosition = 0;
     
-    public const int MaximumPosition = 12;
+    public const int MaxPosition = 12;
 
     public int Score;
     

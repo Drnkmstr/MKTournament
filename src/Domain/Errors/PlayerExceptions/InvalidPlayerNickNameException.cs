@@ -17,6 +17,6 @@ public class InvalidPlayerNickNameException : DomainException
 
     private static string GetMessage(string value)
     {
-        return string.Format(MessageTemplate, value, PlayerNickName.MinimumLength, PlayerNickName.MaximumLength);
+        return string.Format(MessageTemplate, value, PlayerNickName.MinLength, PlayerNickName.MaxLength);
     }
 }

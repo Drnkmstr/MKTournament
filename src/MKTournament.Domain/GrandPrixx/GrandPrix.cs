@@ -23,5 +23,5 @@ public class GrandPrix(
 
     public string AiMode { get; } = aiMode?.Value ?? Enums.AiMode.Normal.Value;
 
-    public int RacesNumber { get; } = raceNumberNumber?.Value ?? GrandPrixRaceNumber.R4.Value;
+    public int RaceCount { get; } = raceNumberNumber?.Value ?? GrandPrixRaceNumber.R4.Value;
 }

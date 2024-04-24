@@ -1,5 +1,4 @@
 using MediatR;
-using Domain.Entities;
 
 namespace Application.Players.Commands;
 

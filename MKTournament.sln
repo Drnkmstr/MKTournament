@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Domain\Domain.csproj", "{E6B90E67-1150-43A5-A2D0-96B3DDD9B7AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKTournament.Domain", "src\MKTournament.Domain\MKTournament.Domain.csproj", "{E6B90E67-1150-43A5-A2D0-96B3DDD9B7AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{466B376A-94A6-4D4C-88D6-A587294E0AA5}"
 EndProject

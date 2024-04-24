@@ -1,7 +1,7 @@
-using Domain.Errors.MapExceptions;
-using Domain.Errors.PlayerExceptions;
-using Domain.ValueObjects;
+using MKTournament.Domain.Errors.MapExceptions;
 using FluentAssertions;
+using MKTournament.Domain.Maps;
+
 // ReSharper disable StringLiteralTypo
 
 namespace Domain.Tests.ValueObjects;
@@ -21,7 +21,9 @@ public class MapNameTests
     }
     
     [Test]
+    // Too short
     [TestCase("o")]
+    // Too long
     [TestCase("oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")]
     public void ShouldThrow(string name)
     {

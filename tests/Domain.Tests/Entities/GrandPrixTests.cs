@@ -1,6 +1,6 @@
-using Domain.Entities;
-using Domain.Enums;
+using MKTournament.Domain.Enums;
 using FluentAssertions;
+using MKTournament.Domain.GrandPrixx;
 
 namespace Domain.Tests.Entities;
 
@@ -12,7 +12,7 @@ public class GrandPrixTests
     [Test]
     public void DefaultInitialization()
     {
-        var gp = new GrandPrix();
+        var gp = new GrandPrix(Guid.NewGuid());
 
         gp.Type.Should().Be(GrandPrixType.Gp150.Value);
         gp.ObjectMode.Should().Be(ObjectMode.Normal.Value);

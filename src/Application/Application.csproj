@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Domain\Domain.csproj" />
+      <ProjectReference Include="..\MKTournament.Domain\MKTournament.Domain.csproj" />
     </ItemGroup>
 
 </Project>

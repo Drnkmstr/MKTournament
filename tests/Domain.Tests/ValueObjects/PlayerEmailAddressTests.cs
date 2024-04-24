@@ -1,6 +1,6 @@
-using Domain.Errors.PlayerExceptions;
-using Domain.ValueObjects;
+using MKTournament.Domain.Errors.PlayerExceptions;
 using FluentAssertions;
+using MKTournament.Domain.Players;
 
 namespace Domain.Tests.ValueObjects;
 

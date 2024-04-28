@@ -1,4 +1,3 @@
-using ErrorOr;
 using MKTournament.Domain.Common;
 using MKTournament.Domain.Enums;
 

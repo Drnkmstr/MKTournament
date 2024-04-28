@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Persistence;
+namespace MKTournament.Infrastructure.Persistence;
 
 public class ApplicationDbContext : DbContext
 {

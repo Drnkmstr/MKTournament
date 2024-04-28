@@ -18,6 +18,25 @@
 
 
 
+    <ItemGroup>
+      <EmbeddedResource Update="Players\PlayerErrorMessages.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>PlayerErrorMessages.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <Compile Update="Players\PlayerErrorMessages.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>PlayerErrorMessages.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+
+
 
 
 

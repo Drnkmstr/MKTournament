@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MKTournament.Domain.Players;
 
-namespace Infrastructure.Persistence.Configurations;
+namespace MKTournament.Infrastructure.Persistence.Configurations;
 
 public class PlayerConfigurations : IEntityTypeConfiguration<Player>
 {

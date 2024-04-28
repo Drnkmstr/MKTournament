@@ -3,10 +3,6 @@ namespace MKTournament.Domain.Errors;
 // ReSharper disable UnusedMember.Global
 public class DomainException : Exception
 {
-    public DomainException()
-    {
-    }
-
     public DomainException(string value) : base(value)
     {
     }

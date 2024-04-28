@@ -14,7 +14,7 @@ public class MapConfigurations : IEntityTypeConfiguration<Map>
         builder.Property(p => p.Name)
             .HasMaxLength(MapName.MaxLength);
 
-        builder.HasMany<Race>()
+        builder.HasMany<PlayerRace>()
             .WithOne()
             .HasForeignKey(p => p.MapId);
     }

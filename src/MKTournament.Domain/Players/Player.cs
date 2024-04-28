@@ -1,18 +1,17 @@
-using ErrorOr;
+using MKTournament.Domain.Abstractions;
 using MKTournament.Domain.Common;
+using MKTournament.Domain.Players.Errors;
 using MKTournament.Domain.Players.Events;
 
 namespace MKTournament.Domain.Players;
 
-public class Player(
-    Guid id,
-    PlayerNickName nickName,
-    PlayerEmailAddress emailAddress)
-    : BaseEntity(id)
+public class Player(Guid id, PlayerNickName nickName, PlayerEmailAddress emailAddress)
+    : BaseEntity (id)
 {
-    public string NickName { get; } = nickName.Value;
 
-    public string EmailAddress { get; } = emailAddress.Value;
+    public PlayerNickName NickName { get; private set; } = nickName;
+
+    public PlayerEmailAddress EmailAddress { get; private set; } = emailAddress;
 
     public DateTime? RegisteredOnUtc { get; private set; }
     
@@ -22,47 +21,38 @@ public class Player(
     
     public DateTime? EmailConfirmedOnUtc { get; private set; }
 
-    public ErrorOr<Success> Register()
+    public string IdentityId { get; private set; } = string.Empty;
+
+    #region Methods
+
+    public static Player Create(PlayerNickName nickName, PlayerEmailAddress emailAddress)
     {
-        if (EmailConfirmedOnUtc is not null)
+        var player = new Player(Guid.NewGuid(), nickName, emailAddress)
         {
-            return Error.Failure(
-                nameof(PlayerErrorMessages.PlayerEmail_AlreadyConfirmed), 
-                string.Format(PlayerErrorMessages.PlayerEmail_AlreadyConfirmed, emailAddress));
-        }
-        
-        var currentDateTime = DateTime.Now;
-        
-        RegisteredOnUtc = currentDateTime;
+            RegisteredOnUtc = DateTime.Now,
+            RegistrationToken = PlayerTokenService.GenerateToken()
+        };
 
-        RegistrationToken = PlayerTokenService.GenerateToken();
-        
-        RaiseDomainEvent(new PlayerRegisteredDomainEvent(Id));
-        
-        return Result.Success;
+        player.RaiseDomainEvent(new PlayerCreatedDomainEvent(player.Id));
+
+        return player;
     }
-
-    public ErrorOr<Success> ConfirmEmail(string registrationToken)
+    
+    public Result ConfirmEmail(string registrationToken)
     {
         if (RegisteredOnUtc is null)
         {
-            return Error.Failure(
-                nameof(PlayerErrorMessages.Player_NotRegistered), 
-                string.Format(PlayerErrorMessages.Player_NotRegistered, emailAddress));
+            return Result.Failure(PlayerErrors.NotRegistered(EmailAddress));
         }
         
         if (EmailConfirmedOnUtc is not null)
         {
-            return Error.Failure(
-                nameof(PlayerErrorMessages.PlayerEmail_AlreadyConfirmed), 
-                string.Format(PlayerErrorMessages.PlayerEmail_AlreadyConfirmed, emailAddress));
+            return Result.Failure(PlayerErrors.EmailAlreadyConfirmed(EmailAddress));
         }
 
         if (!RegistrationToken.Equals(registrationToken))
         {
-            return Error.Failure(
-                nameof(PlayerErrorMessages.PlayerRegitrationToken_NotMatch), 
-                string.Format(PlayerErrorMessages.PlayerRegitrationToken_NotMatch));
+            return Result.Failure(PlayerErrors.RegistrationTokenMismatch);
         }
 
         var currentDateTime = DateTime.Now;
@@ -71,6 +61,7 @@ public class Player(
         
         RaiseDomainEvent(new PlayerConfirmedDomainEvent(Id));
 
-        return Result.Success;
+        return Result.Success();
     }
+    #endregion
 }

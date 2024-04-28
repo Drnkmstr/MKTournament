@@ -20,7 +20,7 @@ public class GrandPrixConfigurations : IEntityTypeConfiguration<GrandPrix>
         builder.Property(p => p.AiMode)
             .HasMaxLength(20);
 
-        builder.HasMany<Race>()
+        builder.HasMany<PlayerRace>()
             .WithOne()
             .HasForeignKey(p => p.GrandPrixId)
             .IsRequired();

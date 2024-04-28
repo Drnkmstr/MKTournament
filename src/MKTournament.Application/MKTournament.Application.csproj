@@ -10,8 +10,4 @@
       <ProjectReference Include="..\MKTournament.Domain\MKTournament.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Users\RegisterUser\" />
-    </ItemGroup>
-
 </Project>

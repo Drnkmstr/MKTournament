@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-04-27T08:21:15.891Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="YlMjsJQL9K7agVlNlWMy" version="24.2.5" type="device">
+<mxfile host="Electron" modified="2024-04-28T14:05:38.720Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="3Jm1FjE7W9utkEv_1kOA" version="24.2.5" type="device">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="857" dy="606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -139,12 +139,6 @@
         </mxCell>
         <mxCell id="X79P-a3b31aQpc4Z4LpM-39" value="&lt;h1&gt;Points per position&lt;/h1&gt;&lt;div&gt;1 = 15&lt;/div&gt;&lt;div&gt;2 = 12&lt;/div&gt;&lt;div&gt;3 = 10&lt;/div&gt;&lt;div&gt;...&lt;/div&gt;&lt;div&gt;12 = 1&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="400" y="10" width="250" height="126" as="geometry" />
-        </mxCell>
-        <mxCell id="OfAiOOOyODkjugbo0GrF-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--0" target="X79P-a3b31aQpc4Z4LpM-11" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="350" y="506.19" as="sourcePoint" />
-            <mxPoint x="590" y="309.19" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="X79P-a3b31aQpc4Z4LpM-11" value="Tournament" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="510" y="530" width="160" height="110" as="geometry">

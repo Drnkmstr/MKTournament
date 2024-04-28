@@ -1,20 +1,10 @@
 namespace MKTournament.Domain.Common;
 
-public abstract class BaseEntity
+public abstract class BaseEntity(Guid id)
 {
     private readonly List<IDomainEvent> _domainEvents = [];
-    
-    protected BaseEntity(Guid id)
-    {
-        Id = id;
-    }
 
-    protected BaseEntity()
-    {
-        
-    }
-    
-    public Guid Id { get; }
+    public Guid Id { get; private set; } = id;
 
     public IReadOnlyList<IDomainEvent> GetDomainEvents() => _domainEvents.ToList();
 

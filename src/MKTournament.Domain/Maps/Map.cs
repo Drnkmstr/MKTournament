@@ -2,7 +2,21 @@ using MKTournament.Domain.Common;
 
 namespace MKTournament.Domain.Maps;
 
-public class Map(Guid id, MapName name) : BaseEntity(id)
+public class Map : BaseEntity
 {
-    public string Name { get; } = name.Value;
+    private Map(Guid id, MapName name) : base(id)
+    {
+        Name = name;
+    }
+
+    public MapName Name { get; private set; }
+
+    #region Methods
+
+    public static Map Create(MapName name)
+    {
+        return new Map(default, name);
+    }
+
+    #endregion
 }

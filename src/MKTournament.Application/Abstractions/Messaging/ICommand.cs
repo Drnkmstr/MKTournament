@@ -1,7 +1,7 @@
 using MediatR;
 using MKTournament.Domain.Abstractions;
 
-namespace MKTournament.Application.Abstractions;
+namespace MKTournament.Application.Abstractions.Messaging;
 
 public interface ICommand : IRequest<Result>, IBaseCommand;
 

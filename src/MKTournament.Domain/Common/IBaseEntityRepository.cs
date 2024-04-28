@@ -9,5 +9,5 @@ where T : BaseEntity
 
     Task RemoveAsync(T entity, CancellationToken cancellationToken = default);
 
-    Task AddAsync(T entity, CancellationToken cancellationToken = default);
+    void Add(T entity, CancellationToken cancellationToken = default);
 }

@@ -12,6 +12,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKTournament.Infrastructure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKTournament.Application", "src\MKTournament.Application\MKTournament.Application.csproj", "{4CDD6A7D-1DD5-4D0D-893B-EAFC300B8A14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKTournament.API", "src\MKTournament.API\MKTournament.API.csproj", "{406E7B96-EBE8-49D7-9B60-B282E7E39050}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7D0DED2D-A5B2-45B2-9061-8B7E62404595}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,11 +45,16 @@ Global
 		{4CDD6A7D-1DD5-4D0D-893B-EAFC300B8A14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CDD6A7D-1DD5-4D0D-893B-EAFC300B8A14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CDD6A7D-1DD5-4D0D-893B-EAFC300B8A14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{406E7B96-EBE8-49D7-9B60-B282E7E39050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{406E7B96-EBE8-49D7-9B60-B282E7E39050}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{406E7B96-EBE8-49D7-9B60-B282E7E39050}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{406E7B96-EBE8-49D7-9B60-B282E7E39050}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E6B90E67-1150-43A5-A2D0-96B3DDD9B7AD} = {466B376A-94A6-4D4C-88D6-A587294E0AA5}
 		{BC408B75-E77D-47C9-8A0F-58762FD999DF} = {333889AB-0E38-4A83-9EFD-9E2F10E61AC3}
 		{9504B16E-0DBF-4E2A-AFF3-B33925E120C7} = {466B376A-94A6-4D4C-88D6-A587294E0AA5}
 		{4CDD6A7D-1DD5-4D0D-893B-EAFC300B8A14} = {466B376A-94A6-4D4C-88D6-A587294E0AA5}
+		{406E7B96-EBE8-49D7-9B60-B282E7E39050} = {466B376A-94A6-4D4C-88D6-A587294E0AA5}
 	EndGlobalSection
 EndGlobal

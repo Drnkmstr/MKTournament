@@ -1,0 +1,6 @@
+﻿services:
+  mktournament.api:
+    image: mktournament.api
+    build:
+      context: .
+      dockerfile: src/MKTournament.API/Dockerfile

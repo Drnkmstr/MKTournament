@@ -5,9 +5,9 @@ using MKTournament.Domain.Races;
 
 namespace MKTournament.Infrastructure.Persistence.Configurations;
 
-public class GrandPrixConfigurations : IEntityTypeConfiguration<GrandPrix>
+public class GrandPrixConfigurations //: IEntityTypeConfiguration<GrandPrix>
 {
-    public void Configure(EntityTypeBuilder<GrandPrix> builder)
+    /*public void Configure(EntityTypeBuilder<GrandPrix> builder)
     {
         builder.HasKey(p => p.Id);
 
@@ -24,5 +24,5 @@ public class GrandPrixConfigurations : IEntityTypeConfiguration<GrandPrix>
             .WithOne()
             .HasForeignKey(p => p.GrandPrixId)
             .IsRequired();
-    }
+    }*/
 }

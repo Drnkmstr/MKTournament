@@ -7,7 +7,7 @@ where T : BaseEntity
 {
     Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
-    Task RemoveAsync(T entity, CancellationToken cancellationToken = default);
+    void RemoveAsync(T entity, CancellationToken cancellationToken = default);
 
     void Add(T entity, CancellationToken cancellationToken = default);
 }

@@ -1,4 +1,8 @@
+using Asp.Versioning;
+using MKTournament.API.Enpoints.Players;
+using MKTournament.API.Extensions;
 using MKTournament.Application;
+using MKTournament.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +12,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplicationLayer();
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApiVersioning(options =>
+    {
+        options.DefaultApiVersion = new ApiVersion(1);
+        options.ReportApiVersions = true;
+        options.ApiVersionReader = new UrlSegmentApiVersionReader();
+    })
+    .AddApiExplorer(options =>
+    {
+        options.GroupNameFormat = "'v'V";
+        options.SubstituteApiVersionInUrl = true;
+    });
 
 var app = builder.Build();
 
@@ -15,9 +31,33 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        var descriptions = app.DescribeApiVersions();
+
+        foreach (var description in descriptions)
+        {
+            var url = $"/swagger/{description.GroupName}/swagger.json";
+
+            var name = description.GroupName.ToUpperInvariant();
+            options.SwaggerEndpoint(url, name);
+        }
+    });
+    app.ApplyMigration();
 }
 
 app.UseHttpsRedirection();
+
+app.UseCustomExceptionHandler();
+
+var apiVersionSet = app.NewApiVersionSet()
+    .HasApiVersion(new ApiVersion(1))
+    .ReportApiVersions()
+    .Build();
+
+var routeBuilder = app.MapGroup("api/v{version:apiVersion}")
+    .WithApiVersionSet(apiVersionSet);
+
+routeBuilder.MapPlayersEndpoints();
 
 app.Run();

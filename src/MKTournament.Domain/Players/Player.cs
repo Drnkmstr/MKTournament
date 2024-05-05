@@ -29,7 +29,7 @@ public class Player(Guid id, PlayerNickName nickName, PlayerEmailAddress emailAd
     {
         var player = new Player(Guid.NewGuid(), nickName, emailAddress)
         {
-            RegisteredOnUtc = DateTime.Now,
+            RegisteredOnUtc = DateTime.UtcNow,
             RegistrationToken = PlayerTokenService.GenerateToken()
         };
 
@@ -55,7 +55,7 @@ public class Player(Guid id, PlayerNickName nickName, PlayerEmailAddress emailAd
             return Result.Failure(PlayerErrors.RegistrationTokenMismatch);
         }
 
-        var currentDateTime = DateTime.Now;
+        var currentDateTime = DateTime.UtcNow;
 
         EmailConfirmedOnUtc = currentDateTime;
         

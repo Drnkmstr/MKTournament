@@ -22,6 +22,10 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>PlayerErrorMessages.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Common\GenericErrors.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>GenericErrors.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
 
@@ -31,6 +35,11 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>PlayerErrorMessages.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Common\GenericErrors.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>GenericErrors.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

@@ -1,4 +1,3 @@
-using System.Net.Http.Headers;
 using Microsoft.Extensions.Logging;
 using MKTournament.Application.Abstractions.Email;
 using MKTournament.Domain.Players;

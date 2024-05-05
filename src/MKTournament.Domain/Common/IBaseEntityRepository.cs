@@ -1,5 +1,3 @@
-using MKTournament.Domain.Abstractions;
-
 namespace MKTournament.Domain.Common;
 
 public interface IBaseEntityRepository<T>

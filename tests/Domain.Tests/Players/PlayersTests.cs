@@ -1,5 +1,4 @@
 using FluentAssertions;
-using MKTournament.Domain.Abstractions;
 using MKTournament.Domain.Players;
 using MKTournament.Domain.Players.Errors;
 using MKTournament.Domain.Players.Events;

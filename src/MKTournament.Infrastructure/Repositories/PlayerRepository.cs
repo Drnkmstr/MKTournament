@@ -1,4 +1,3 @@
-using MKTournament.Domain.Abstractions;
 using MKTournament.Domain.Players;
 using MKTournament.Infrastructure.Persistence;
 

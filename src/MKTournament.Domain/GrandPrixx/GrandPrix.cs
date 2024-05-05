@@ -19,7 +19,7 @@ public class GrandPrix : BaseEntity
         RaceCount = raceNumberNumber.Value;
     }
 
-    public DateTime Date { get; } = DateTime.Now;
+    public DateTime Date { get; } = DateTime.UtcNow;
 
     public string Type { get; }
 

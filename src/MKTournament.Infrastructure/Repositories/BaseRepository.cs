@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using MKTournament.Domain.Abstractions;
 using MKTournament.Domain.Common;
 using MKTournament.Infrastructure.Persistence;
 
@@ -10,7 +9,7 @@ public abstract class BaseRepository<T>(
     : IBaseEntityRepository<T>
     where T : BaseEntity
 {
-    internal readonly DbSet<T> DbContext = dbContext.Set<T>();
+    protected readonly DbSet<T> DbContext = dbContext.Set<T>();
 
     public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {

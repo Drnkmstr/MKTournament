@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MKTournament.Domain.Abstractions;
 using MKTournament.Domain.Players;
-using MKTournament.Domain.Players.Errors;
 using MKTournament.Infrastructure.Persistence;
 
 namespace MKTournament.Infrastructure.Repositories;

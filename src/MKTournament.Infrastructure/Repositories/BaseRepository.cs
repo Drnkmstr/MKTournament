@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MKTournament.Domain.Abstractions;
 using MKTournament.Domain.Common;
 using MKTournament.Infrastructure.Persistence;
 
@@ -7,22 +8,23 @@ namespace MKTournament.Infrastructure.Repositories;
 public abstract class BaseRepository<T>(
     ApplicationDbContext dbContext)
     : IBaseEntityRepository<T>
-where T : BaseEntity
+    where T : BaseEntity
 {
+    internal readonly DbSet<T> DbContext = dbContext.Set<T>();
+
     public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        return await dbContext
-            .Set<T>()
+        return await DbContext
             .FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
     }
 
     public void RemoveAsync(T entity, CancellationToken cancellationToken = default)
     {
-        dbContext.Remove(entity);
+        DbContext.Remove(entity);
     }
 
-    public void Add(T entity, CancellationToken cancellationToken = default)
+    public virtual void Add(T player)
     {
-        dbContext.Add(entity);
+        DbContext.Add(player);
     }
 }

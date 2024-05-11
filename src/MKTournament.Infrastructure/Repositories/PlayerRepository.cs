@@ -8,31 +8,13 @@ namespace MKTournament.Infrastructure.Repositories;
 
 public class PlayerRepository(ApplicationDbContext dbContext) : BaseRepository<Player>(dbContext), IPlayerRepository
 {
-    private readonly ApplicationDbContext _dbContext = dbContext;
-
-    public override async Task<Result> Add(Player player, CancellationToken cancellationToken = default)
+    public async Task<bool> IsEmailAlreadyTakenAsync(PlayerEmailAddress emailAddress, CancellationToken cancellationToken)
     {
-        var foundPlayer = await _dbContext
-            .Set<Player>()
-            .FirstOrDefaultAsync(
-                p => p.NickName.Equals(player.NickName) || p.EmailAddress.Equals(player.EmailAddress),
-                cancellationToken);
+        return await DbContext.AnyAsync(p => p.EmailAddress.Equals(emailAddress), cancellationToken);
+    }
 
-        if (foundPlayer is not null)
-        {
-            if (foundPlayer.EmailAddress.Equals(player.EmailAddress))
-            { 
-                return Result.Failure(PlayerError.EmailAlreadyTaken(player.EmailAddress));
-            }
-
-            if (foundPlayer.NickName.Equals(player.NickName))
-            {
-                return Result.Failure(PlayerError.NickNameAlreadyTaken(player.NickName));
-            }
-        }
-        
-        _dbContext.Add(player);
-        
-        return Result.Success();
+    public async Task<bool> IsNickNameAlreadyTakenAsync(PlayerNickName nickName, CancellationToken cancellationToken = default)
+    {
+        return await DbContext.AnyAsync(p => p.NickName.Equals(nickName), cancellationToken);
     }
 }

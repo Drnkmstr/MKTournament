@@ -1,3 +1,5 @@
+using MKTournament.Domain.Abstractions;
+
 namespace MKTournament.Domain.Common;
 
 public interface IBaseEntityRepository<T>
@@ -7,5 +9,5 @@ where T : BaseEntity
 
     void RemoveAsync(T entity, CancellationToken cancellationToken = default);
 
-    void Add(T entity, CancellationToken cancellationToken = default);
+    void Add(T player);
 }

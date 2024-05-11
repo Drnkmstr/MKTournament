@@ -1,10 +1,13 @@
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MKTournament.Domain.Abstractions;
+using MKTournament.Domain.Common;
 
 namespace MKTournament.Infrastructure.Persistence;
 
 public class ApplicationDbContext(
-    DbContextOptions options)
+    DbContextOptions options,
+    IPublisher publisher)
     : DbContext(options), IUnitOfWork
 {
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -17,10 +20,29 @@ public class ApplicationDbContext(
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        //TODO : Add domain events in DB for later use with hangfire.
-        
         var result = await base.SaveChangesAsync(cancellationToken);
+        
+        var domainEvents = GetDomainEvents();
+
+        foreach (var domainEvent in domainEvents)
+        {
+            await publisher.Publish(domainEvent, cancellationToken);
+        }
 
         return result;
+    }
+
+    private List<IDomainEvent> GetDomainEvents()
+    {
+        return ChangeTracker
+            .Entries<BaseEntity>()
+            .Select(e => e.Entity)
+            .SelectMany(e =>
+            {
+                var domainEvents = e.GetDomainEvents();
+                e.ClearDomainEvents();
+                return domainEvents;
+            })
+            .ToList();
     }
 }

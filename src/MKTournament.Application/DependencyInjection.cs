@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using MKTournament.Application.Abstractions.Behaviors;
+using FluentValidation;
 
 namespace MKTournament.Application;
 
@@ -15,5 +16,12 @@ public static class DependencyInjection
             
             configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
+        
+        serviceCollection.AddApplicationValidators();
+    }
+
+    private static void AddApplicationValidators(this IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
     }
 }

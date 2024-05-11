@@ -15,7 +15,12 @@ public class CreatePlayerCommandHandler(
             PlayerNickName.From(request.NickName),
             PlayerEmailAddress.From(request.Email));
 
-        playerRepository.Add(player, cancellationToken);
+        var result = await playerRepository.Add(player, cancellationToken);
+
+        if (result.IsFailure)
+        {
+            return Result.Failure<Guid>(result.Error);
+        }
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
 

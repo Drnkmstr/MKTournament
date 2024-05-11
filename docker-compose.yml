@@ -1,15 +1,16 @@
 ﻿services:
   mktournament.api:
     image: mktournament.api
+    container_name: MKTournament
     build:
       context: .
       dockerfile: src/MKTournament.API/Dockerfile
   
   mktournament-db:
     image: postgres:latest
-    container_name: mktournament.db
+    container_name: MKTournament.db
     environment:
-      - POSTGRES_DB=bookify
+      - POSTGRES_DB=mktournament
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:

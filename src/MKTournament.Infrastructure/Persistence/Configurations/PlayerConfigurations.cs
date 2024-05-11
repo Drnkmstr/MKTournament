@@ -26,9 +26,6 @@ public class PlayerConfigurations : IEntityTypeConfiguration<Player>
         
         builder.HasIndex(p => p.EmailAddress)
             .IsUnique();
-
-        builder.HasIndex(p => p.IdentityId)
-            .IsUnique();
         
         builder.HasIndex(p => p.NickName)
             .IsUnique();

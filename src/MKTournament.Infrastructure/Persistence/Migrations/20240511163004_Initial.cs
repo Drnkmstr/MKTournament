@@ -36,12 +36,6 @@ namespace MKTournament.Infrastructure.Persistence.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_players_IdentityId",
-                table: "players",
-                column: "IdentityId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_players_NickName",
                 table: "players",
                 column: "NickName",

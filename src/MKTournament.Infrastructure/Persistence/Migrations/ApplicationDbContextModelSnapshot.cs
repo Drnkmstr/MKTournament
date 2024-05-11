@@ -60,9 +60,6 @@ namespace MKTournament.Infrastructure.Persistence.Migrations
                     b.HasIndex("EmailAddress")
                         .IsUnique();
 
-                    b.HasIndex("IdentityId")
-                        .IsUnique();
-
                     b.HasIndex("NickName")
                         .IsUnique();
 

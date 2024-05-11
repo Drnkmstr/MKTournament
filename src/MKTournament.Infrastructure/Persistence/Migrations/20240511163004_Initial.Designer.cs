@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MKTournament.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240504161605_Initial")]
+    [Migration("20240511163004_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -61,9 +61,6 @@ namespace MKTournament.Infrastructure.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EmailAddress")
-                        .IsUnique();
-
-                    b.HasIndex("IdentityId")
                         .IsUnique();
 
                     b.HasIndex("NickName")

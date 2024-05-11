@@ -56,5 +56,53 @@ namespace MKTournament.Application.Players {
                 return ResourceManager.GetString("PlayerCreated_Email_Body", resourceCulture);
             }
         }
+        
+        internal static string PasswordNotEmpty {
+            get {
+                return ResourceManager.GetString("PasswordNotEmpty", resourceCulture);
+            }
+        }
+        
+        internal static string PasswordLength {
+            get {
+                return ResourceManager.GetString("PasswordLength", resourceCulture);
+            }
+        }
+        
+        internal static string PasswordAtLeastOneUpperCase {
+            get {
+                return ResourceManager.GetString("PasswordAtLeastOneUpperCase", resourceCulture);
+            }
+        }
+        
+        internal static string PasswordAtLeastOneLowerCase {
+            get {
+                return ResourceManager.GetString("PasswordAtLeastOneLowerCase", resourceCulture);
+            }
+        }
+        
+        internal static string PasswordAtLeatOneNumber {
+            get {
+                return ResourceManager.GetString("PasswordAtLeatOneNumber", resourceCulture);
+            }
+        }
+        
+        internal static string PasswordAtLeastOneSpecialChar {
+            get {
+                return ResourceManager.GetString("PasswordAtLeastOneSpecialChar", resourceCulture);
+            }
+        }
+        
+        internal static string EmailInvalid {
+            get {
+                return ResourceManager.GetString("EmailInvalid", resourceCulture);
+            }
+        }
+        
+        internal static string NickNameLength {
+            get {
+                return ResourceManager.GetString("NickNameLength", resourceCulture);
+            }
+        }
     }
 }

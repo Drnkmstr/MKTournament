@@ -42,17 +42,17 @@ public class Player(Guid id, PlayerNickName nickName, PlayerEmailAddress emailAd
     {
         if (RegisteredOnUtc is null)
         {
-            return Result.Failure(PlayerErrors.NotRegistered(EmailAddress));
+            return Result.Failure(PlayerError.NotRegistered(EmailAddress));
         }
         
         if (EmailConfirmedOnUtc is not null)
         {
-            return Result.Failure(PlayerErrors.EmailAlreadyConfirmed(EmailAddress));
+            return Result.Failure(PlayerError.EmailAlreadyConfirmed(EmailAddress));
         }
 
         if (!RegistrationToken.Equals(registrationToken))
         {
-            return Result.Failure(PlayerErrors.RegistrationTokenMismatch);
+            return Result.Failure(PlayerError.RegistrationTokenMismatch);
         }
 
         var currentDateTime = DateTime.UtcNow;

@@ -24,4 +24,28 @@
     <data name="PlayerCreated_Email_Body" xml:space="preserve">
         <value>Email verification</value>
     </data>
+    <data name="PasswordNotEmpty" xml:space="preserve">
+        <value>Your password can't be empty.</value>
+    </data>
+    <data name="PasswordLength" xml:space="preserve">
+        <value>Your password must be between {0} and {1} characters long.</value>
+    </data>
+    <data name="PasswordAtLeastOneUpperCase" xml:space="preserve">
+        <value>Your password must contain at least one uppercase letter.</value>
+    </data>
+    <data name="PasswordAtLeastOneLowerCase" xml:space="preserve">
+        <value>Your password must contain at least one lowercase letter.</value>
+    </data>
+    <data name="PasswordAtLeatOneNumber" xml:space="preserve">
+        <value>Your password must contain at least one number.</value>
+    </data>
+    <data name="PasswordAtLeastOneSpecialChar" xml:space="preserve">
+        <value>Your password must contain at least one of {0}.</value>
+    </data>
+    <data name="EmailInvalid" xml:space="preserve">
+        <value>Email is not valid.</value>
+    </data>
+    <data name="NickNameLength" xml:space="preserve">
+        <value>NickName must be between {0}, and {1} characters long.</value>
+    </data>
 </root>

@@ -28,7 +28,7 @@ namespace MKTournament.Domain.Players {
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("MKTournament.Domain.Players.PlayerErrorMessages", typeof(PlayerErrorMessages).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("MKTournament.Domain.Players.Errors.PlayerErrorMessages", typeof(PlayerErrorMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -60,6 +60,18 @@ namespace MKTournament.Domain.Players {
         internal static string PlayerRegitrationToken_NotMatch {
             get {
                 return ResourceManager.GetString("PlayerRegitrationToken_NotMatch", resourceCulture);
+            }
+        }
+        
+        internal static string PlayerEmail_AlreadyTaken {
+            get {
+                return ResourceManager.GetString("PlayerEmail_AlreadyTaken", resourceCulture);
+            }
+        }
+        
+        internal static string PlayerNickName_AlreadyTaken {
+            get {
+                return ResourceManager.GetString("PlayerNickName_AlreadyTaken", resourceCulture);
             }
         }
     }

@@ -27,4 +27,10 @@
     <data name="PlayerRegitrationToken_NotMatch" xml:space="preserve">
         <value>Registration token mismatch</value>
     </data>
+    <data name="PlayerEmail_AlreadyTaken" xml:space="preserve">
+        <value>{0} is already taken.</value>
+    </data>
+    <data name="PlayerNickName_AlreadyTaken" xml:space="preserve">
+        <value>{0} is already taken.</value>
+    </data>
 </root>

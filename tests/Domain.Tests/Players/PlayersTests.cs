@@ -42,6 +42,6 @@ public class PlayersTests : BaseTest
         var result = _player.ConfirmEmail(_player.RegistrationToken);
 
         result.IsFailure.Should().BeTrue();
-        result.Error.Should().Be(PlayerErrors.EmailAlreadyConfirmed(_player.EmailAddress));
+        result.Error.Should().Be(PlayerError.EmailAlreadyConfirmed(_player.EmailAddress));
     }
 }

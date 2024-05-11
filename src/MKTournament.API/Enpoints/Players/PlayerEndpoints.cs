@@ -23,8 +23,8 @@ public static class PlayerEndpoints
             var result = await sender.Send(command, cancellationToken);
 
             return result.IsSuccess
-                ? Results.CreatedAtRoute($"{BaseRoute}/{result.Value.ToString()}")
-                : Results.NotFound();
+                ? Results.Ok(result.Value)
+                : Results.BadRequest(result.Error);
         });
 
         builder.MapGet(BaseRoute + "/{id:guid}", async (Guid id, ISender sender, CancellationToken cancellationToken) =>
